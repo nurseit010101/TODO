@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}To Do{% endblock %}
+
+{% block container %}
+<div class="container">
+    <table class="table table-striped table-hover mt-5">
+
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Загаловка</th>
+                <th scope="col">Описание</th>
+                <th scope="col">Дата</th>
+                <th scope="col">Удалить</th>
+                <th scope="col">Востанавить</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in delete_todo %}
+            <tr>
+                <td>{{ i.delete_id }}</td>
+                <td>{{i.delete_title}}</td>
+                <td>{{i.delete_description}}</td>
+                <td>{{i.delete_send_at}}</td>
+                <td><a href="delete_card/{{i.id}}"><i class="fa-solid fa-trash"></i></a></td>
+                <td><a href="w_card/{{i.id}}"><i class="fa-solid fa-share"></i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}To Do{% endblock %}
+
+{% block container %}
+<div class="container">
+    <table class="table table-striped table-hover mt-5">
+
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Загаловка</th>
+                <th scope="col">Описание</th>
+                <th scope="col">Дата</th>
+                <th scope="col">Избранный</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in izbran_todo %}
+            <tr>
+                <td>{{ i.izbran_id }}</td>
+                <td>{{i.izbran_title}}</td>
+                <td>{{i.izbran_description}}</td>
+                <td>{{i.izbran_send_at}}</td>
+                <td><a href="izbran_delete/{{i.id}}"><i class="fa-solid fa-heart"></i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
